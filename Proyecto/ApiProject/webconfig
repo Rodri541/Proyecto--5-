@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+  <system.webServer>
+    <handlers>
+      <add name="NodeHandler" path="server.js" verb="*" modules="iisnode" resourceType="Unspecified" />
+    </handlers>
+    <rewrite>
+      <rules>
+        <rule name="NodeJS" stopProcessing="true">
+          <match url="(.*)" />
+          <action type="Rewrite" url="server.js/{R:1}" />
+        </rule>
+      </rules>
+    </rewrite>
+    <iisnode 
+      loggingEnabled="true" 
+      devErrorsEnabled="true" 
+      watchedFiles="web.config;*.js;*.json" 
+      maxConcurrentRequestsPerProcess="200" 
+      debuggingEnabled="true" />
+    
+    <!-- Configuración de errores personalizados -->
+    <httpErrors errorMode="Custom">
+      <remove statusCode="404" />
+      <error statusCode="404" path="/error-pages/404.html" responseMode="ExecuteURL" />
+      
+      <remove statusCode="500" />
+      <error statusCode="500" path="/error-pages/500.html" responseMode="ExecuteURL" />
+      
+      <!-- Agregar error 403 (Forbidden) -->
+      <remove statusCode="403" />
+      <error statusCode="403" path="/error-pages/403.html" responseMode="ExecuteURL" />
+    </httpErrors>
+    <security>
+        <ipSecurity allowUnlisted="false">
+            <clear />
+            <add ipAddress="167.60.117.19" allowed="true" />
+        </ipSecurity >
+        </security>
+  </system.webServer>
+</configuration>
