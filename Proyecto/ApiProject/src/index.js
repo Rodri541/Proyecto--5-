@@ -8,12 +8,18 @@ import cors from 'cors';
 
 const app = express();
 
+app.use(express.json());
+
 const corsOptions = {
   origin: '*',
   methods: ['GET', 'POST', 'PUT', 'DELETE'], 
   allowedHeaders: ['Content-Type', 'Authorization'],  
   credentials: true, 
 };
+
+app.get('/', (req, res) => {
+  res.send('¡La API está funcionando correctamente!');
+});
 
 app.use(cors(corsOptions));  
 app.use(express.json());
