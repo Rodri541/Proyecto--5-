@@ -9,7 +9,7 @@ import cors from 'cors';
 const app = express();
 
 const corsOptions = {
-  origin: 'https://jolly-coast-05026500f.5.azurestaticapps.net',  
+  origin: 'lacandelaapi2-dnewg3f7asd5fsem.canadacentral-01.azurewebsites.net',  
   methods: ['GET', 'POST', 'PUT', 'DELETE'], 
   allowedHeaders: ['Content-Type', 'Authorization'],  
   credentials: true, 
