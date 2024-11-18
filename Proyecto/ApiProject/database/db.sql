@@ -87,7 +87,7 @@ INSERT INTO Categories (Name, ParentCategoryId) VALUES
 
 -- Insertar productos de ejemplo para cada categoría, incluyendo la imagen, rate, y los nuevos campos
 -- Los Sahumerios tienen las medidas y color nulos
-INSERT INTO Products (Name, Price, Cost, Description, Quantity, CategoryId, CreationDate, ImageUrl, Rate, Base, Height, Weight, Volume, Color, Package) VALUES 	
+INSERT INTO Products (Name, Price, Cost, Description, Quantity, CategoryId, CreationDate, ImageUrl, Rate, Base, Height, Weight, Volume, Colors, Package) VALUES 	
 ('Velas lisas', 330.00, 0, 'Pack de 50 velas lisas, ideales para crear una atmósfera cálida en cualquier ocasión.', 30, 1, GETDATE(), 'https://http2.mlstatic.com/D_NQ_NP_614227-MLU50254517021_062022-O.webp', 0, NULL, NULL, NULL, NULL, NULL, 50),	--1
 ('Velas combinadas', 439.00, 0, 'Pack de 50 velas combinadas en varios colores, perfectas para dar un toque de color.', 30, 1, GETDATE(), 'https://mundovelas.com.uy/5314-thickbox_default/vela-familiar-combinada-25-unidades-mismo-color.jpg', 0, NULL, NULL, NULL, NULL, NULL, 50),	--2
 ('Velas super', 720.00, 0, 'Pack de 50 velas de tamaño grande, ideales para una iluminación duradera en el hogar.', 30, 1, GETDATE(), 'https://www.velaspampeana.com/sitio/wp-content/uploads/2024/03/Super-Blanca-x3.jpg', 0, NULL, NULL, NULL, NULL, NULL, 50),	--3

@@ -17,8 +17,10 @@ const corsOptions = {
   credentials: true, 
 };
 
-app.get('/', (req, res) => {
-  res.send('¡La API está funcionando correctamente!');
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+}).on('error', (err) => {
+  console.error('Error during startup:', err);
 });
 
 app.use(cors(corsOptions));  

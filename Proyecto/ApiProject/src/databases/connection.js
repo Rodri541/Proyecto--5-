@@ -1,8 +1,8 @@
 import sql from "mssql";
 
 const dbSettings = {
-  user: "sa",
-  password: "sololetras",
+  user: "admin2024",
+  password: "sololetras123.",
   server: "localhost",
   database: "laCandelaDB",
   options: {
