@@ -6,32 +6,23 @@ import categoriesRoutes from './routes/categories.routes.js';
 import suppliersRoutes from './routes/suppliers.routes.js';
 import cors from 'cors';
 
+const express = require('express');
 const app = express();
 
+// Middleware básico para solicitudes JSON
 app.use(express.json());
-console.log(`Server running on port ${PORT}`);
-const corsOptions = {
-  origin: '*',
-  methods: ['GET', 'POST', 'PUT', 'DELETE'], 
-  allowedHeaders: ['Content-Type', 'Authorization'],  
-  credentials: true, 
-};
 
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
-}).on('error', (err) => {
-  console.error('Error during startup:', err);
+// Endpoint básico para probar
+app.get('/', (req, res) => {
+    res.send('API is running!');
 });
 
-app.use(cors(corsOptions));  
-app.use(express.json());
-
-// Usar las rutas
 app.use(productRoutes);
 app.use(userRoutes);
 app.use(categoriesRoutes);
 app.use(suppliersRoutes);
-
+// Configuración del puerto (Azure usa process.env.PORT)
+const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
-  console.log('Servidor iniciado... Puerto: ', PORT);
+    console.log(`Server running on port ${PORT}`);
 });
