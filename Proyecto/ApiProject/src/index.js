@@ -9,7 +9,7 @@ import cors from 'cors';
 const app = express();
 
 app.use(express.json());
-
+console.log(`Server running on port ${PORT}`);
 const corsOptions = {
   origin: '*',
   methods: ['GET', 'POST', 'PUT', 'DELETE'], 
