@@ -3,7 +3,7 @@ import sql from "mssql";
 const dbSettings = {
   user: "admin2024",
   password: "sololetras123.",
-  server: "localhost",
+  server: "serverdeploytaller.database.windows.net",
   database: "laCandelaDB",
   options: {
     encrypt: false,
