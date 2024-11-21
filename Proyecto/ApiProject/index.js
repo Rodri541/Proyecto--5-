@@ -8,23 +8,21 @@ import cors from 'cors';
 
 const app = express();
 
-app.use(express.json());
-
+// Configuración CORS
 const corsOptions = {
   origin: '*',
   methods: ['GET', 'POST', 'PUT', 'DELETE'], 
   allowedHeaders: ['Content-Type', 'Authorization'],  
-  credentials: true, 
+  credentials: true,
 };
-
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
-}).on('error', (err) => {
-  console.error('Error during startup:', err);
-});
 
 app.use(cors(corsOptions));  
 app.use(express.json());
+
+app.use((err, req, res, next) => {
+  console.error('Unhandled error:', err);
+  res.status(500).send('Internal Server Error');
+});
 
 // Usar las rutas
 app.use(productRoutes);
@@ -32,6 +30,7 @@ app.use(userRoutes);
 app.use(categoriesRoutes);
 app.use(suppliersRoutes);
 
+// Inicia el servidor
 app.listen(PORT, () => {
-  console.log('Servidor iniciado... Puerto: ', PORT);
+  console.log(`Servidor iniciado en el puerto: ${PORT}`);
 });
